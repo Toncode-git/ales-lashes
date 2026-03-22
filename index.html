@@ -473,6 +473,19 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s;
+    }
+
+    a.contact-item:hover { opacity: 0.7; }
+
+    .maps-link {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+      letter-spacing: 0.03em;
     }
 
     .contact-item-icon {
@@ -733,27 +746,29 @@
       <h2 class="section-title">Agenda tu<br><em>cita</em></h2>
       <p>Estoy disponible para atenderte con cariño. Escríbeme por WhatsApp y coordino tu cita según tu disponibilidad.</p>
       <div class="contact-items">
-        <div class="contact-item">
+        <a class="contact-item" href="https://www.google.com/maps/place/P.H.+Rosa/@8.9916452,-79.5254254,20.23z/data=!4m15!1m8!3m7!1s0x8fa61583c8be2be3:0x79eee04d1fa59bcf!2zUGFuYW3DoQ!3b1!8m2!3d8.537981!4d-80.782127!16zL20vMDVxeDE!3m5!1s0x8faca900587e9cbf:0xd05ae2122a7085a8!8m2!3d8.9916125!4d-79.5253578!16s%2Fg%2F11vz219nld?authuser=1&entry=ttu&g_ep=EgoyMDI2MDMxOC4xIKXMDSoASAFQAw%3D%3D" target="_blank">
           <div class="contact-item-icon">📍</div>
           <div class="contact-item-text">
             <strong>Ubicación</strong>
-            <a href=""></a>
+            P.H. Rosa, Panamá
+            <span class="maps-link">Ver en Google Maps →</span>
           </div>
-        </div>
+        </a>
         <div class="contact-item">
           <div class="contact-item-icon">📱</div>
           <div class="contact-item-text">
             <strong>WhatsApp</strong>
-            +507 60435629
+            +507 6043-5629
           </div>
         </div>
-        <div class="contact-item">
+        <a class="contact-item" href="https://instagram.com/ales_lashes" target="_blank">
           <div class="contact-item-icon">📸</div>
           <div class="contact-item-text">
             <strong>Instagram</strong>
             @ales_lashes
+            <span class="maps-link">Ver perfil →</span>
           </div>
-        </div>
+        </a>
       </div>
       <!-- Cambia el número por el real: solo los dígitos sin + ni espacios -->
       <a href="https://wa.me/50760435629?text=Hola!%20quiero%20agendar%20una%20cita%20de%20pesta%C3%B1as%20%E2%9C%A8" class="whatsapp-btn" target="_blank">
