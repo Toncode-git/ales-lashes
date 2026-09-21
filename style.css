@@ -32,7 +32,6 @@
 
 .darkmode footer { background: #0e0813; }
 .darkmode footer .footer-name { color: #fff; }
-.darkmode .gallery-item { filter: brightness(0.5) saturate(1.3); }
 
 #theme-switch {
   position: fixed;
@@ -460,6 +459,18 @@ section {
 
 .gallery-item:first-child { grid-row: span 2; aspect-ratio: auto; }
 
+/* Fotos: llenan el recuadro sin deformarse (recorte centrado en el ojo) */
+.gallery-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item:nth-child(1) img { object-position: 55% 50%; }
+.gallery-item:nth-child(3) img { object-position: 75% 50%; }
+
 .gallery-item:hover { transform: scale(0.98); }
 
 .gallery-item::after {
@@ -662,6 +673,8 @@ footer p {
     gap: 0.5rem;
   }
   .gallery-item:first-child { grid-row: auto; }
+  /* 5 fotos en 2 columnas: la última ocupa todo el ancho para no dejar un hueco */
+  .gallery-item:last-child { grid-column: 1 / -1; aspect-ratio: 2 / 1; }
 
   .nav-tabs li a { padding: 1rem 0.65rem; font-size: 0.63rem; }
 
