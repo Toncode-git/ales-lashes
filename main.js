@@ -45,4 +45,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const el = document.getElementById(id);
     if (el) observer.observe(el);
   });
+
+  /* ── GALLERY: click a photo to enlarge it ── */
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = lightbox.querySelector('img');
+
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    const photo = item.querySelector('img');
+
+    // The tiles are <div>s, so make them reachable and usable from the keyboard too
+    item.tabIndex = 0;
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', `Ampliar foto: ${photo.alt}`);
+
+    const open = () => {
+      lightboxImg.src = photo.src;
+      lightboxImg.alt = photo.alt;
+      lightbox.showModal(); // <dialog> already handles Esc and locks the page behind
+    };
+
+    item.addEventListener('click', open);
+    item.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        open();
+      }
+    });
+  });
+
+  // A click anywhere except the photo itself (backdrop or the X button) closes it
+  lightbox.addEventListener('click', (e) => {
+    if (e.target !== lightboxImg) lightbox.close();
+  });
 });
